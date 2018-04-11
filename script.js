@@ -8,20 +8,27 @@ function decipherThis(str) {
 let words = [];
 let deCypher = [];
   words=str.split(' ')
-  console.log(words);
+  // console.log(words);
   let regex =/\d+/;
+  let regexl = /\D+/;
   for(let i=0; i<words.length; i++){
     let charSet =words[i].match(regex);
+    let letters =words[i].match(regexl);
+
     let firstLetter =String.fromCharCode(charSet[0])
-    if (charSet[0].length===words[i].length){
+    // console.log(charSet[0]);
+      // if ()
+      // if (!letters){
+      //   // console.log(letters);
+      //   deCypher.push(firstLetter)
+      //   // i++
+      // }
+      deCypher.push(firstLetter + letters)
 
-      console.log('this is one letter word: ' +String.fromCharCode(charSet[0]));
 
-    }
-    console.log(charSet[0]);
     console.log(firstLetter);
   }
-
+console.log(deCypher);
 
 };
 

@@ -4,38 +4,38 @@
 
 
 function decipherThis(str) {
-  //break into an array of strings
-let words = [];
-let deCypher = [];
+  let words = [];
+  let deCypher = [];
   words=str.split(' ')
-  // console.log(words);
   let regex =/\d+/;
   let regexl = /\D+/;
   for(let i=0; i<words.length; i++){
     let charSet =words[i].match(regex);
     let letters =words[i].match(regexl);
     let firstLetter =String.fromCharCode(charSet[0])
-  if (letters===null){
-  deCypher.push(firstLetter)
+    if (letters===null){
+      deCypher.push(firstLetter)
+    }
+    else{
+      let x=letters[0].length
+      let lastLetter =letters[0][x-1]
+      if (x==1){
+        deCypher.push(firstLetter+lastLetter)
+      }
+      else{
+        let middleLetters = letters[0].substring(1,x-1);
+        let secondLetter = letters[0][0];
+        deCypher.push(firstLetter+lastLetter+middleLetters+secondLetter);
+      }
+    }
   }
- else{
-   let x=letters[0].length
-   // console.log('the length of this string '+letters+' is:  '+ x +' the last letter of which is: '+letters[0][x-1])
-   let lastLetter =letters[0][x-1]
-   if (x==1){
-     deCypher.push(firstLetter+lastLetter)
-   }
-   else{
-
-   let middleLetters = letters[0].substring(1,x-1)
-   let secondLetter = letters[0][0]
-   deCypher.push(firstLetter+lastLetter+middleLetters+secondLetter)
- }
- }
-  }
-console.log(deCypher);
-
+  console.log(deCypher.join(' '));
+  return deCypher.join(' ');
 };
+
+
+
+
 
 
 
